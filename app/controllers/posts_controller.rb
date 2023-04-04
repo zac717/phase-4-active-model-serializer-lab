@@ -11,6 +11,12 @@ class PostsController < ApplicationController
     render json: post
   end
 
+  def short_content
+    post = Post.find(params[:id])
+    render json: post, serializer: PostContentSerializer
+  end
+
+
   private
 
   def render_not_found_response
